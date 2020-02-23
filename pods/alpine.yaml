@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-aliyun
+  namespace: default
+spec:
+  containers:
+  - name: alpine-aliyun
+    image: yuweijun/alpine-aliyun:latest
