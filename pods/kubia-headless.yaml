@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: kubia-headless
 spec:
-  clusterIP: Nome
+  clusterIP: None
   selector:
     app: kubia
   ports:
