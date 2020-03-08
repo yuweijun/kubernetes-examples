@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: local-pvc-pod
+spec:
+  containers:
+    - name: local-frontend
+      image: dockerfile/nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: local-volume
+  volumes:
+    - name: local-volume
+      persistentVolumeClaim:
+        claimName: local-pvc

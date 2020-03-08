@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: producer-consumer-emptydir
+spec:
+  containers:
+  - name: producer
+    image: busybox
+    command:
+    - /bin/sh
+    - "-c"
+    - "echo \"hello world : $(date +'%a %Y-%m-%d %R')\" > /producer/hello ; sleep 30000"
+    volumeMounts:
+    - mountPath: /producer
+      name: shared-volume
+  - name: consumer
+    image: busybox
+    command:
+    - /bin/sh
+    - "-c"
+    - "cat /consumer/hello ; sleep 30000"
+    volumeMounts:
+    - mountPath: /consumer
+      name: shared-volume
+  volumes:
+  - name: shared-volume
+    emptyDir: {}
