@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: local-frontend
-      image: dockerfile/nginx
+      image: nginx
       volumeMounts:
       - mountPath: "/var/www/html"
         name: local-volume
