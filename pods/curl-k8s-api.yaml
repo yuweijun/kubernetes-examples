@@ -1,0 +1,16 @@
+# kubectl apply -f cluster-admin-role-rbac.yaml
+# get https response with curl as below
+# curl --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceccount/token)" https://kubernetes
+# or
+# export CURL_CA_BUNDLE=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+# export TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceccount/token)
+# curl -H "Authorization: Bearer $TOKEN" https://kubernetes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-k8s-api
+spec:
+  containers:
+    - name: main
+      image: tutum/curl
+      command: ["sleep", "9999999"]
